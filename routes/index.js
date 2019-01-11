@@ -31,7 +31,7 @@ router.get('/empresas/:id', (req, res)=>{
 
 router.post('/buscar', (req, res)=>{
   let nombreEmpresa = req.body.empresa;
-  Empresa.findOne({'name': nombreEmpresa})
+  Empresa.findOne({name: {$regex: nombreEmpresa, $options: 'i'}})
   .then((empresa)=>{
     res.redirect(301, `/empresas/${empresa._id}`)
   })
