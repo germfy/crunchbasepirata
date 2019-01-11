@@ -1,0 +1,20 @@
+<h1>EMPRESAS</h1>
+<form action="/buscar" method="post">
+  <label for="empresa">Buscar</label>
+  <input type="text" name="empresa" value="" placeholder="Buscar una empresa">
+  <button type="submit" name="button">Buscar</button>
+</form>
+<div>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>URL</th>
+    </tr>
+    {{#each empresas}}
+    <tr>
+      <td><a href="/empresas/{{this._id}}">{{this.name}}</a></td>
+      <td> <a href="{{this.homepage_url}}">{{this.homepage_url}}</a></td>
+    </tr>
+    {{/each}}
+  </table>
+</div>
