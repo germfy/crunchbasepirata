@@ -42,8 +42,7 @@ router.get('/libros/edit', (req, res)=>{
 router.post('/libros/edit', (req, res)=>{
   const {title, author, description, rating} = req.body
   Books.updateOne({_id:req.query.book_id}, {$set: {title, author, description, rating}})
-  .then(book =>{
-    console.log(book);
+  .then(libro =>{
     res.redirect('/libros')
   })
   .catch(err=>console.log(err))
