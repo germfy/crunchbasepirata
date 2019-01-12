@@ -14,6 +14,8 @@
     <tr>
       <td><a href="/libros/{{this._id}}">{{this.title}}</a></td>
       <td> {{this.author}}</td>
+      <td><a href="/libros/edit?book_id={{this._id}}" class="edit-button">Editar</a>
+      </td>
     </tr>
     {{/each}}
   </table>
