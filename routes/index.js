@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/libros', (req, res)=>{
   Books.find()
+    .populate('author')
     .then(libros =>{
       res.render('books', {libros})
     })
@@ -53,6 +54,7 @@ router.get('/libros/:id', (req, res)=>{
   let libroId = req.params.id
   console.log(libroId);
   Books.findOne({'_id': libroId})
+  .populate('author')
   .then((libro)=>{
     res.render('book-detalle', { libro })
   })

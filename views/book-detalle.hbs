@@ -1,5 +1,5 @@
 <h1>{{libro.title}}</h1>
-<h2>Escrito por:{{libro.author}}</h2>
+<h2>Escrito por:{{libro.author.[0].name}} {{libro.author.[0].lastName}} </h2>
 <h3>Descripción</h3>
 <span>{{libro.description}}</span>
 <p>Rating: {{libro.rating}}</p>
