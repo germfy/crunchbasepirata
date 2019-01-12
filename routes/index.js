@@ -17,6 +17,19 @@ router.get('/libros', (req, res)=>{
       console.log(err)
     })
 })
+router.get('/libros/add',(req, res)=>{
+  res.render('libro-nuevo')
+})
+
+router.post('/libros/add', (req, res)=>{
+  const {title, author, description, rating} = req.body;
+  const newBook = new Books({title, author, description, rating})
+  newBook.save()
+  .then(()=>{
+    res.redirect(301, '/libros')
+  })
+  .catch(err=>console.log(err))
+})
 
 router.get('/libros/:id', (req, res)=>{
   let libroId = req.params.id
@@ -40,4 +53,6 @@ router.post('/buscar', (req, res)=>{
     console.log(err);
   })
 })
+
+
 module.exports = router;
