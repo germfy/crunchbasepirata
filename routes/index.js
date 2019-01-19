@@ -65,9 +65,11 @@ router.get('/libros/:id', (req, res)=>{
 
 router.post('/buscar', (req, res)=>{
   let nombreLibro = req.body.titulo;
-  Books.findOne({title: {$regex: nombreLibro, $options: 'i'}})
+  //Books.findOne({title: {$regex: nombreLibro, $options: 'i'}})
+  Books.find({title: {$regex: nombreLibro, $options: 'i'}})
   .then((libro)=>{
-    res.redirect(301, `/libros/${libro._id}`)
+    //res.redirect(301, `/libros/${libro._id}`)
+    res.json(libro)
   })
   .catch(err=>{
     console.log(err);
