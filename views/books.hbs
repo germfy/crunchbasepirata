@@ -5,20 +5,18 @@
   <button type="submit" name="button">Buscar</button>
 </form>
 <div>
-  <table id="tablalibros">
-    <tr>
-      <th>Nombre</th>
-      <th>URL</th>
-    </tr>
+  <div class="grid-encabezado">
+    <div>Titulo</div>
+    <div>Autor</div>
+  </div>
+  <div class="grid-libros" id="tablalibros">
     {{#each libros}}
-    <tr>
-      <td><a href="/libros/{{this._id}}">{{this.title}}</a></td>
-      <td> {{this.author.[0].name}} {{this.author.[0].lastName}}</td>
-      <td><a href="/libros/edit?book_id={{this._id}}" class="edit-button">Editar</a>
-      </td>
-    </tr>
+      <div><a href="/libros/{{this._id}}">{{this.title}}</a></div>
+      <div>{{this.author.[0].name}} {{this.author.[0].lastName}}</div>
+      <div><a href="/libros/edit?book_id={{this._id}}" class="edit-button">Editar</a></div>
     {{/each}}
-  </table>
+  </div>
+
 </div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
